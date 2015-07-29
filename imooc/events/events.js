@@ -48,7 +48,6 @@ life.on('求爱', function (who) {
 
 life.removeListener('求安慰',water);
 
-
 var x=life.emit('求安慰', '汉子');
 var y=life.emit('求爱', '汉子');
 var z=life.emit('ss', '汉子');
