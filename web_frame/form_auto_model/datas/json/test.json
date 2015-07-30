@@ -1,0 +1,30 @@
+[
+  {
+    "textName": "姓名",
+    "name": "uname",
+    "dataType": "string",
+    "placeholder": "输入您的名称",
+    "inputType": "text",
+    "defValue": "A",
+    "checked": {
+      "required": true
+    },
+    "hasCommon": true
+  },
+  {
+    "textName": "年龄",
+    "name": "uage",
+    "dataType": "number",
+    "placeholder": "输入您的名称",
+    "inputType": "select",
+    "defValue": [
+      {
+        "value": "1","text": "x"
+      }
+    ],
+    "checked": {
+      "required": false
+    },
+    "hasCommon": true
+  }
+]

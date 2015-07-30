@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>index</title>
+    <link href="res/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="res/icheck-1.x/skins/all.css" rel="stylesheet">
+    <link href="res/Font-Awesome-3.2.1/css/font-awesome.min.css" rel="stylesheet">
+</head>
+<body>
+<div style="display: none">
+
+</div>
+<style>
+    .form_table{
+        width: 60%;
+        margin: 0px auto;
+    }
+    .form_table tr{
+        line-height: 50px;
+    }
+    .form_table .bitian{
+        vertical-align:text-top;color: red
+    }
+</style>
+
+<table class="form_table">
+    <!-- 基本文本框-->
+    <tr>
+        <td class="bitian">*</td>
+        <td >NN</td>
+        <td ><input type="text" class="form-control"/></td>
+    </tr>
+    <!-- checkbox的样式-->
+    <tr>
+        <td class="bitian">*</td>
+        <td>NNN</td>
+        <td ><input type="checkbox" id="x1"> <label  for="x1">N1</label>&nbsp;&nbsp;
+            <input type="checkbox" id="x2"> <label for="x2">N2</label>&nbsp;&nbsp;
+        </td>
+    </tr>
+    <tr>
+        <td class="bitian">*</td>
+        <td>性别</td>
+        <td><input type="radio" name="age" id="age[1]"> <label  for="age[1]">男</label>&nbsp;&nbsp;
+            <input type="radio" name="age" id="age[2]"> <label for="age[2]">女</label>&nbsp;&nbsp;
+        </td>
+    </tr>
+    <tr>
+        <td class="bitian">*</td>
+        <td>选择一个项目</td>
+        <td>
+            <select class="form-control" >
+                <option></option>
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <td class="bitian">*</td>
+        <td style="vertical-align:text-top;">多文本输入</td>
+        <td ><textarea type="textarea"  class="form-control" rows="3"></textarea></td>
+    </tr>
+</table>
+
+<script src="res/jquery-1.8.3.min.js"></script>
+<script src="res/common.js"></script>
+<script src="res/bootstrap/js/bootstrap.min.js"></script>
+<script src="res/icheck-1.x/icheck.min.js"></script>
+
+<script>
+    document.body.onload = function () {
+
+        $('input').iCheck({
+            checkboxClass: 'icheckbox_square-blue',
+            radioClass: 'iradio_square-blue',
+            increaseArea: '20%'//optional
+        });
+
+        $.get('datas/json/test.json', function (data) {
+            $.each(data,function(i,a){
+                var inputType=a.inputType;
+                var input=$("#input_"+ inputType);
+                var input=input.clone();
+                $("body").append(input);
+                input.attr({"id": a.name,"name": a.name});
+                var defvalue=a.defValue;
+                if(inputType=='select'){
+                    var temp="";
+                    defvalue.forEach(function(item){
+                        temp+="<option value='"+item.value+"'>"+item.text+"</option>"
+                    });
+                    input.html(temp);
+                }else{
+                    input.val(defvalue);
+                }
+            });
+        });
+    }
+</script>
+
+</body>
+</html>
