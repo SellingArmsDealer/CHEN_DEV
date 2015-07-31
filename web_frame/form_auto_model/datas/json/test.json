@@ -1,30 +1,72 @@
-[
-  {
-    "textName": "姓名",
-    "name": "uname",
-    "dataType": "string",
-    "placeholder": "输入您的名称",
-    "inputType": "text",
-    "defValue": "A",
-    "checked": {
+{
+  "groups": [
+    {
+      "id": 1,
+      "groupTitle": "兵哥1号",
+      "canSlid": true,
+      "isHide": false
+    },
+    {
+      "id": 2,
+      "groupTitle": "兵哥2号"
+    },
+    {
+      "id": 3,
+      "groupTitle": "斌哥三号"
+    },
+    {
+      "id": 4,
+      "groupTitle": "兵哥四号"
+    }
+  ],
+  "inputs": [
+    {
+      "textName": "姓名",
+      "name": "uname",
+      "dataType": "string",
+      "placeholder": "输入您的名称",
+      "inputType": "inputText",
+      "defValue": "ABB",
+      "required": true,
+      "groupId": 1
+    },
+    {
+      "textName": "年龄",
+      "name": "uage",
+      "dataType": "number",
+      "placeholder": "输入您的名称",
+      "inputType": "inputSelect",
+      "defValue": [
+        {
+          "value": "1",
+          "text": "1岁",
+          "selected": true
+        },
+        {
+          "value": "2",
+          "text": "2岁"
+        },
+        {
+          "value": "3",
+          "text": "3岁"
+        }
+      ],
       "required": true
     },
-    "hasCommon": true
-  },
-  {
-    "textName": "年龄",
-    "name": "uage",
-    "dataType": "number",
-    "placeholder": "输入您的名称",
-    "inputType": "select",
-    "defValue": [
-      {
-        "value": "1","text": "x"
-      }
-    ],
-    "checked": {
-      "required": false
-    },
-    "hasCommon": true
-  }
-]
+    {
+      "textName": "推荐人",
+      "name": "puser_id",
+      "dataType": "puser_id",
+      "placeholder": "选择您的推荐人",
+      "inputType": "inputSel",
+      "defValue": {
+        "valType": "tree",
+        "datas":[
+            {}
+        ]
+      },
+      "required": true,
+      "groupId": 1
+    }
+  ]
+}
