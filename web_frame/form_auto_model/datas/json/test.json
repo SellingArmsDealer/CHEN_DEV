@@ -55,8 +55,8 @@
     },
     {
       "textName": "推荐人",
-      "name": "puser_id",
-      "dataType": "puser_id",
+      "name": "tuijianren",
+      "dataType": "number",
       "placeholder": "选择您的推荐人",
       "inputType": "inputSel",
       "defValue": {
@@ -65,6 +65,50 @@
             {}
         ]
       },
+      "required": true,
+      "groupId": 1
+    },
+    {
+      "textName": "爱好",
+      "name": "aihao",
+      "dataType": "number",
+      "inputType": "inputCheckbox",
+      "defValue": [
+        {
+          "value": "1",
+          "text": "游戏",
+          "checked": true
+        },
+        {
+          "value": "2",
+          "text": "游泳",
+          "checked": false
+        },
+        {
+          "value": "3",
+          "text": "篮球",
+          "checked": false
+        }
+      ],
+      "required": true,
+      "groupId": 1
+    },
+    {
+      "textName": "性别",
+      "name": "sex",
+      "dataType": "number",
+      "inputType": "inputRadio",
+      "defValue": [
+        {
+          "value": "1",
+          "text": "男",
+          "checked": true
+        },
+        {
+          "value": "0",
+          "text": "女"
+        }
+      ],
       "required": true,
       "groupId": 1
     }

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon"/>
+    <link href="res/font-awesome-4.3.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="res/easyui/themes/bootstrap/easyui.css" rel="stylesheet">
+    <script src="res/jquery.min.js"></script>
+    <script src="res/easyui/jquery.easyui.min.js"></script>
+</head>
+<body>
+<style>
+    * {
+        margin: 0px;
+        padding: 0px;
+    }
+
+    .index-top-menu {
+        float: right;
+        height: 43px;
+        margin-top: 12px;
+    }
+
+    .index-top-menu td {
+        padding-right: 10px;
+        padding-left: 10px;
+        box-shadow: 3px 3px 3px #888888;
+        position:relative;
+    }
+
+    .index-top-menu td:hover {
+        cursor: pointer;
+        box-shadow: 6px 6px 3px #888888;
+        top: 1px;
+        left: 1px;
+    }
+
+    .center_menu {
+        width: 200px;
+        margin-left: 5px;
+        box-shadow: 5px 5px 5px #888888;
+    }
+
+    .center_menu ul {
+        list-style: none;
+        display: none;
+    }
+
+    .center_menu .menu_head {
+        width: 100%;
+        height: 40px;
+        font-size: 18px;
+        line-height: 40px;
+        border-bottom: 1px solid white;
+        background-color: #29303B;
+        color: #F5F5F5;
+        cursor: pointer;
+    }
+
+    .center_menu .menu_head:hover, .center_menu .menu_head_sel {
+        background-color: #000000;
+        color: white;
+    }
+
+    .center_menu .menu_btn {
+        height: 35px;
+        line-height: 35px;
+        font-size: 14px;
+        padding-left: 50px;
+        color: #505A69;
+        background-color: #1C2125;
+        cursor: pointer;
+    }
+    .center_menu .menu_btn:hover, .center_menu .menu_btn_sel {
+        background-color: #000000;
+        /*background-color: red;*/
+        color: #F5F5F5;
+    }
+
+</style>
+<div id="cc" class="easyui-layout" data-options="fit:true">
+    <div data-options="region:'north',title:'',border:false" style="height:65px;">
+        <img style="position: absolute;width: 200px;height: 50px;top:5px;left:5px;box-shadow:5px 5px 10px #888888;"
+             src="images/logo.png"/>
+        <table class="index-top-menu">
+            <tr>
+                <td><img src="images/icon/home_16.png"> 主页
+                </td>
+                <td><img src="images/icon/personal_16.png"> 密码修改
+                </td>
+                <td><img src="images/icon/shutdown_16.png"> 注销</td>
+                <td><img src="images/icon/help_16.png"> 帮助</td>
+            </tr>
+        </table>
+    </div>
+    <div data-options="region:'west',title:'',border:false" style="width:220px;">
+        <div style="width: 100%;height: 100%;">
+            <div class="center_menu">
+
+                <div>
+                    <div class="menu_head">
+                        <i class="fa fa-cog fa-spin" style="margin-left: 10px"></i> 菜单_1
+                        <i class="fa fa-angle-down fa-2x" style="float: right;margin-right: 5px;"></i>
+                    </div>
+                    <ul>
+                        <li class="menu_btn">子菜单_1</li>
+                        <li class="menu_btn">子菜单_2</li>
+                    </ul>
+                </div>
+                <div>
+                    <div class="menu_head">
+                        <i class="fa fa-cog fa-spin" style="margin-left: 10px"></i> 菜单_2
+                        <i class="fa fa-angle-down fa-2x" style="float: right;margin-right: 5px;"></i>
+                    </div>
+                    <ul>
+                        <li class="menu_btn">子菜单_23</li>
+                        <li class="menu_btn">子菜单_24</li>
+                    </ul>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+    <div data-options="region:'center',title:'',border:false" style="overflow:hidden">
+        <iframe style="border: 0px;width: 99%;height: 99%;overflow: hidden;box-shadow:6px 6px 3px #888888"
+                src="home.html"></iframe>
+    </div>
+</div>
+
+<script src="index.js"></script>
+<script>
+    $(document).ready(function(){
+        $('.menu_head').bind('click',function(){
+            var that=this;
+            $(this).next().slideToggle(50,function(){
+                if(!$(that).hasClass('menu_head_sel')){
+                    $(that).addClass('menu_head_sel');
+                }else{
+                    $(that).removeClass('menu_head_sel');
+                }
+                var hh_1=$(that).find('.fa-angle-down');
+                var hh_2=$(that).find('.fa-angle-up');
+                $(hh_1).removeClass('fa-angle-down');
+                $(hh_1).addClass('fa-angle-up');
+                $(hh_2).removeClass('fa-angle-up');
+                $(hh_2).addClass('fa-angle-down');
+            });
+        });
+    });
+</script>
+</body>
+</html>
