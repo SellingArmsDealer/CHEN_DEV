@@ -1,0 +1,14 @@
+{
+  "page_num": "",
+  "rows_per_page": "",
+  "columns": [
+    {
+      "customer_id": 1,
+      "lastname":"U",
+      "firstname":"T",
+      "email":"V",
+      "gender":"B",
+      "date_updated":"9823"
+    }
+  ]
+}

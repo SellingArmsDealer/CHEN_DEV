@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <!-- 日期控件-->
+    <script src="res/My97DatePicker/WdatePicker.js"></script>
+    <!--  JQUERY -->
+    <script src="res/jquery.min.js"></script>
+    <!--  BOOTSTRAP -->
+    <link rel="stylesheet" href="res/bootstrap-3.3.5-dist/css/bootstrap.min.css">
+    <!-- 字体图标-->
+    <link href="res/font-awesome-4.3.0/css/font-awesome.min.css" rel="stylesheet">
+    <script src="res/bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
+    <!-- datatables-->
+    <link href="res/DataTables-1.10.7/media/css/jquery.dataTables.min.css" rel="stylesheet">
+    <script src="res/DataTables-1.10.7/media/js/jquery.dataTables.min.js"></script>
+</head>
+<body>
+<style>
+    .title {
+        width: 110px;
+        display: block;
+        float: left;
+    }
+
+    .label {
+        margin-left: 5px;
+        margin-right: 5px;
+    }
+
+    .label-click {
+        background-color: inherit;
+        color: #303942;
+        position: relative;
+    }
+
+    .label-click:hover {
+        border: 1px solid lightgrey;
+        cursor: pointer;
+    }
+</style>
+<h3>查询条件</h3>
+
+<div>
+    <ul class="list-group">
+        <li class="list-group-item">
+            &nbsp;&nbsp;
+            <span class="title">首字母筛选：</span>
+            <span class="label label-success">全部</span>
+            <span class="label label-click">走天涯</span>
+        </li>
+        <li class="list-group-item">
+            &nbsp;&nbsp;
+            <span class="title">生日：</span>
+            <span class="label label-success">全部</span>
+            <span class="label label-click">走天涯信息是的</span>
+        </li>
+        <li class="list-group-item">
+            &nbsp;&nbsp;
+            <spana class="title">员工骚选：</spana>
+            <span class="label label-success">全部</span>
+        </li>
+    </ul>
+</div>
+
+<table id="example" class="display" cellspacing="0" width="100%">
+
+</table>
+
+<!-- http://dt.thxopen.com/manual/server-side.html 服务器支持分页-->
+<script>
+
+    $(document).ready(function () {
+        $('#example').dataTable({
+//            "ajax": 'data.txt',
+            "columns": [
+                {"data": "name", "visible": false},
+                {"data": "position"},
+                {"data": "office"},
+                {"data": "extn"},
+                {"data": "start_date"},
+                {"data": "salary"}
+            ], "columnDefs": [
+                // 将Salary列变为红色
+                {
+                    // 目标列位置，下标从0开始
+                    "targets": [5],
+                    // 数据列名
+                    "data": "salary",
+                    // 返回自定义内容
+                    "render": function (data, type, full) {
+                        return "" + data + "";
+                    }
+                },
+                // 增加一列，包括删除和修改，同时将我们需要传递的数据传递到链接中
+                {
+                    // 目标列位置，下标从0开始
+                    "targets": [6],
+                    // 数据列名
+                    "data": "name",
+                    "render": function (data, type, full) {
+                        // 返回自定义内容
+                        return "Delete Update";
+                    }
+                }]
+        });
+    });
+</script>
+
+</body>
+</html>
